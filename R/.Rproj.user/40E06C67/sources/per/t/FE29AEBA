@@ -3,7 +3,7 @@
     "path": "D:/UNALArchivo/Inferencia Estadistica/R, Python and Julia/R/main.r",
     "project_path": "main.r",
     "type": "r_source",
-    "hash": "3457727157",
+    "hash": "897670278",
     "contents": "",
     "dirty": false,
     "created": 1679780226730.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "14,24",
-        "scrollLine": "2"
+        "cursorPosition": "87,9",
+        "scrollLine": "68"
     },
     "folds": "",
-    "lastKnownWriteTime": 1679799824,
+    "lastKnownWriteTime": 1682365918,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1679799824826,
+    "last_content_update": 1682365918431,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -2,9 +2,8 @@
 P5M - main.py
 
 Statistic Inference
-Python example for statistical analysis
+Python example for probabilistic distribution analysis
 """
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -24,7 +23,7 @@ def prob_distributions():
     """
 
     # Creating subplots in figure
-    fig, axes = plt.subplots(1, 3)
+    fig, axes = plt.subplots(3, 1)
 
     total_frames = 30
     # Animating subplots
@@ -45,7 +44,6 @@ def prob_distributions():
         axes[0].clear()
         axes[0].plot(x, y, label="Normal Distribution")
         
-        axes[0].set_xlabel("x")
         axes[0].set_ylabel("$f_X(x)$")
         axes[0].set_title("$Normal Distribution \\ Percentile P( |X| > x ) = %.2f $" % p)
 
@@ -82,7 +80,6 @@ def prob_distributions():
         axes[1].clear()
         axes[1].plot(x, y)
 
-        axes[1].set_xlabel("x")
         axes[1].set_ylabel("$f_X(x)$")
         axes[1].set_title("$Exp Distribution \\ Percentile P( |X| > x ) = %.2f $" % (p / 5))
 
@@ -121,7 +118,7 @@ def prob_distributions():
 
         axes[2].set_xlabel("x")
         axes[2].set_ylabel("$f_X(x)$")
-        axes[2].set_title("$Chi^2 Distribution \\Percentile P( |X| > x ) = %.2f $" % p)
+        axes[2].set_title("$Chi^2 Distribution Percentile P( |X| > x ) = %.2f $" % p)
 
         q1 = chi2.ppf( p, df) # Percentile calculation #1
         q2 = chi2.ppf( 1 - p, df) # Percentile calculation #2
@@ -152,28 +149,11 @@ def prob_distributions():
         frames=total_frames,
         interval=1000
     )
+
+    # A little of margin at bottom
+    plt.tight_layout()
+
     plt.show()
 
-def statistical_analysis():
-
-    # Reading test data
-    data = pd.read_csv("./data/googleplaystore.csv", sep=',')
-    pass
-    
-
-opt = 0
-while opt != 4:
-
-    # Get chosen operation
-    opt = int( input(
-        "Choose an option: \n" +
-        "1. Probability Distributions \n" +
-        "2. Statistical Analysis \n" + 
-        "3. Simple Regresion \n" + 
-        "4. Salir \n" +
-        "Seleccione una opción: "
-    ))
-
-    if opt == 1:
-        prob_distributions()
+prob_distributions()
 
