@@ -1,4 +1,4 @@
-# Neede packages
+# Needed packages
 import Pkg;
 Pkg.add("CSV");
 Pkg.add("DataFrames");
@@ -14,25 +14,7 @@ using Plots
 using DecisionTree
 using Statistics
 using Random
-using CategoricalArrays
 
-# Read DataFrame
-# df = CSV.read("./data/googleplaystore.csv", DataFrame)
-
-# println("Initializing project")
-
-# # Exploring dataset size
-# println("Dataset size: ", size(df))
-
-# # Exploring dataset structure
-# println("Dataset columns:")
-# show(df, allcols=true)
-
-# # Show first 5 rows
-# println("First 5 rows:")
-# println(first(df, 5))
-
-##############
 ## Testing with a well-known dataset
 X, y = DecisionTree.load_data("iris")
 
@@ -75,5 +57,8 @@ y_pred = DecisionTree.predict(model, X_test)
 
 # Accuracy
 accuracy = mean(y_pred .== y_test)
+
+# Visualize DecisionTree
+print_tree(model, 10)
 
 println("Accuracy: ", accuracy)
