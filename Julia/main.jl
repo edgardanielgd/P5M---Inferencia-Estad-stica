@@ -18,6 +18,17 @@ using Random
 ## Testing with a well-known dataset
 X, y = DecisionTree.load_data("iris")
 
+# Desscribe data
+describe(X)
+
+# Checkout some data samples
+print("=================\n")
+print(first(X, 15))
+print("\n=================\n")
+print(first(y, 15))
+print("\n=================\n")
+
+# Perform needed type conversions
 X = float.(X)
 y = string.(y)
 
