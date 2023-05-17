@@ -5,6 +5,7 @@ Pkg.add("DataFrames");
 Pkg.add("DecisionTree");
 Pkg.add("Plots");
 Pkg.add("Statistics");
+Pkg.add("GraphPlot");
 
 # Use packages
 using CSV
@@ -13,7 +14,7 @@ using Distributions
 using Plots
 using DecisionTree
 using Statistics
-using Random
+using GraphPlot
 
 ## Testing with a well-known dataset
 X, y = DecisionTree.load_data("iris")
@@ -60,8 +61,8 @@ y_train = y[train_index]
 y_test = y[test_index]
 
 # trainning model
-model = DecisionTree.DecisionTreeClassifier(max_depth=2)
-DecisionTree.fit!(model, X_train, y_train)
+model = RandomForestClassifier(n_trees=10, max_depth=5)
+result = DecisionTree.fit!(model, X_train, y_train)
 
 # Predicting
 y_pred = DecisionTree.predict(model, X_test)
@@ -69,7 +70,10 @@ y_pred = DecisionTree.predict(model, X_test)
 # Accuracy
 accuracy = mean(y_pred .== y_test)
 
-# Visualize DecisionTree
-print_tree(model, 10)
+# Printing graph
+for (i, tree) in enumerate(result.ensemble.trees)
+    DecisionTree.print_tree(tree, 5)
+end
 
 println("Accuracy: ", accuracy)
+
